@@ -20,3 +20,13 @@ Con el dispositivo conectado por USB o emulador activo, ejecutar `adb reverse tc
 ## Estructura
 
 Cada módulo tiene su propio pom, Application (inicio y seguridad), entidad JPA y controlador. El controlador mapea HTTP, valida Entrada y usa JpaRepository para insertar, actualizar o consultar. La API meteorológica se consume directamente desde Android. El proyecto usa una ubicación pública fija para San Bernardo y no solicita GPS.
+
+## Verificación con Huerto · Cosecha
+
+La rama desarrollo-ep4 del frontend integra el rediseño y las pruebas de cobertura Android. La aplicación continúa usando estos mismos dos servicios. Para repetir la verificación de contratos con ambos servicios en marcha y HUERTO_API_CLAVE configurada, ejecuta desde este repositorio:
+
+```bash
+python3 scripts/probar-crud.py
+```
+
+El script crea datos ficticios, comprueba autenticación y validación, prueba lectura y edición, elimina sus registros y comprueba el 404 posterior. Para verificar persistencia en una demostración independiente, registra un insumo desde Android, reinicia Inventario en el mismo directorio y vuelve a consultar su ID.
